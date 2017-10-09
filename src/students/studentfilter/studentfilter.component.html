@@ -1,0 +1,23 @@
+<div class="radio">
+    <label>
+        <input type="radio" name="selectedGender" value="all"
+         [(ngModel)] = 'selectedGender'
+         (change) = 'updateSelectedGender()'
+        />
+        All {{countAll}}
+    </label>
+    <label>
+        <input type="radio" name="selectedGender" value="male" 
+         [(ngModel)] = 'selectedGender'
+         (change) = 'updateSelectedGender()'
+        />
+        Male {{countMale}}
+    </label>
+    <label>
+        <input type="radio" name="selectedGender" value="female"
+         [(ngModel)] = 'selectedGender'
+         (change) = 'updateSelectedGender()'
+        />
+        Female {{countFemale}}
+    </label>
+</div>

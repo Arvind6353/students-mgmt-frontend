@@ -1,0 +1,53 @@
+<br/>
+<br/>
+
+<student-filter [countAll]='getAllStudentsCount()' [countMale]='getMaleStudentsCount()' [countFemale]='getFemaleStudentsCount()' (filterSelectedGender)="filterByGender($event)">
+</student-filter>
+
+
+<br/>
+<br/>
+
+<div class="well">
+    Student Details
+    <a class="btn btn-success" style="float:right" routerLink="/students/create">Create Student</a>
+
+</div>
+
+<div class="table-responsive table-striped" *ngIf='students && students.length > 0'>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name </th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>Hobbies</th>
+                <th> Gender </th>
+                <th colspan="2">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor='let student of students'>
+                <tr *ngIf="filterString =='all' || filterString ==student.gender">
+                    <td>{{student.name}}</td>
+                    <td>{{student.age}}</td>
+                    <td>{{student.address}}</td>
+                    <td>{{student.hobbies}}</td>
+                    <td>{{student.gender}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" (click)='editStudent(student._id)'>Edit</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)='deleteStudent(student._id)'>Delete</button>
+                    </td>
+
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf='!students || students.length == 0'>
+    <p> {{statusMessage}} </p>
+</div>

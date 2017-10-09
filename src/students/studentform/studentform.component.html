@@ -1,0 +1,59 @@
+<form (ngSubmit)="createStudent()" #studentForm="ngForm" class="form-horizontal" role="form">
+
+    <div class="form-group">
+        <legend>Students Form</legend>
+    </div>
+
+    <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Name:</label>
+        <div class="col-sm-10">
+            <input type="text" name="name" id="name" class="form-control" [(ngModel)]='name' required="required">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="age" class="col-sm-2 control-label">Age:</label>
+        <div class="col-sm-10">
+            <input type="number" name="age" id="age" class="form-control" [(ngModel)]='age' required="required">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Address:</label>
+        <div class="col-sm-10">
+            <textarea name="address" id="address" class="form-control" rows="3" required="required" [(ngModel)]='address'></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="hobbies" class="col-sm-2 control-label">Hobbies:</label>
+        <div class="col-sm-10">
+            <input type="text" name="hobbies" id="hobbies" class="form-control" [(ngModel)]='hobbies'>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="gender" class="col-sm-2 control-label">Gender:</label>
+
+        <div class="radio col-sm-10">
+            <label>
+            <input type="radio" name="gender" value="male"
+             [(ngModel)] = 'gender' required="required"
+            />
+            Male
+        </label>
+            <label>
+            <input type="radio" name="gender" value="female"
+             [(ngModel)] = 'gender' required="required"
+            />
+            Female
+        </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+            <button type="submit" class="btn btn-success" [disabled]="!studentForm.form.valid">Submit</button>
+        </div>
+    </div>
+</form>
